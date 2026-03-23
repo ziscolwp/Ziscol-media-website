@@ -7,7 +7,7 @@ import { useRef, useState } from 'react'
 const clients = [
   { name: 'BullRunners', initials: 'BR', subscribers: '375K subs', color: '#e6eb2f', textColor: '#000', img: 'https://unavatar.io/youtube/bullrunners' },
   { name: 'Jake Claver', initials: 'JC', subscribers: '100K+ subs', color: '#60a5fa', textColor: '#fff', img: 'https://unavatar.io/youtube/jakeclaver' },
-  { name: 'OB Health', initials: 'OB', subscribers: '290K followers', color: '#2dd4bf', textColor: '#000', img: 'https://unavatar.io/instagram/ob_health.fit' },
+  { name: 'OB Health', initials: 'OB', subscribers: '290K followers', color: '#2dd4bf', textColor: '#000', img: '' },
   { name: 'Jesse Hoffman', initials: 'JH', subscribers: 'Founder of MindPeak', color: '#a78bfa', textColor: '#fff', img: 'https://unavatar.io/youtube/jessehhoffman' },
   { name: 'Hamilton Emails', initials: 'HE', subscribers: 'Founder, Hamilton Emails', color: '#F472B6', textColor: '#fff', img: 'https://unavatar.io/youtube/hamiltonemails' },
   { name: 'Will Cannon', initials: 'WC', subscribers: 'Founder, iamwillcannon', color: '#fb923c', textColor: '#fff', img: 'https://unavatar.io/youtube/iamwillcannon' },
@@ -18,18 +18,19 @@ const clients = [
 
 function ClientAvatar({ client }: { client: typeof clients[0] }) {
   const [imgFailed, setImgFailed] = useState(false)
+  const showImg = client.img && !imgFailed
   return (
     <div className="relative mb-3">
-      {!imgFailed ? (
+      {showImg ? (
         <img
           src={client.img}
           alt={client.name}
           onError={() => setImgFailed(true)}
-          className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-2 border-white/10"
+          className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-2 border-white/10"
         />
       ) : (
         <div
-          className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-lg font-semibold group-hover:scale-105 transition-transform duration-300 border-2 border-white/10"
+          className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full flex items-center justify-center text-base font-semibold group-hover:scale-105 transition-transform duration-300 border-2 border-white/10"
           style={{ backgroundColor: client.color, color: client.textColor }}
         >
           {client.initials}
@@ -74,7 +75,7 @@ export default function WorkedWith() {
         </motion.div>
 
         {/* Client Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 md:gap-8">
+        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-4 md:gap-6">
           {clients.map((client, index) => (
             <motion.div
               key={client.name}
