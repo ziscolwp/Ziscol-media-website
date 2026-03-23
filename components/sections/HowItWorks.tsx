@@ -189,7 +189,7 @@ export default function HowItWorks() {
 
                 {/* Right: SVG illustrations */}
                 <div className="flex items-center py-9 pr-9">
-                  <div className="w-full rounded-2xl overflow-hidden aspect-[4/3] relative bg-black border border-white/[0.06]">
+                  <div className="w-full rounded-2xl overflow-hidden aspect-[4/3] relative bg-[#1e1e1e]">
                     {illustrationSrcs.map((src, i) => (
                       <motion.div
                         key={i}
@@ -266,7 +266,7 @@ export default function HowItWorks() {
                       </div>
                     </div>
                     {/* Mobile illustration */}
-                    <div className="ml-14 w-full max-w-[280px] aspect-[4/3] rounded-xl bg-black border border-white/[0.06] p-3">
+                    <div className="ml-14 w-full max-w-[280px] aspect-[4/3] rounded-xl bg-[#1e1e1e] p-3">
                       <img src={illustrationSrcs[i]} alt={step.title} className="w-full h-full object-contain scale-[1.33]" />
                     </div>
                   </div>
