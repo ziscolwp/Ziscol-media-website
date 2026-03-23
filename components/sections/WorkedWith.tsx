@@ -26,11 +26,11 @@ function ClientAvatar({ client }: { client: typeof clients[0] }) {
           src={client.img}
           alt={client.name}
           onError={() => setImgFailed(true)}
-          className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-2 border-white/10"
+          className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-2 border-white/10"
         />
       ) : (
         <div
-          className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full flex items-center justify-center text-base font-semibold group-hover:scale-105 transition-transform duration-300 border-2 border-white/10"
+          className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-base font-semibold group-hover:scale-105 transition-transform duration-300 border-2 border-white/10"
           style={{ backgroundColor: client.color, color: client.textColor }}
         >
           {client.initials}
@@ -75,7 +75,7 @@ export default function WorkedWith() {
         </motion.div>
 
         {/* Client Grid */}
-        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-4 md:gap-6">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-8 md:gap-x-8 md:gap-y-10">
           {clients.map((client, index) => (
             <motion.div
               key={client.name}
@@ -86,12 +86,12 @@ export default function WorkedWith() {
                   : { opacity: 0, y: 30, filter: 'blur(10px)' }
               }
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="flex flex-col items-center group"
+              className="flex flex-col items-center group w-20 md:w-24"
             >
               <ClientAvatar client={client} />
-              <div className="text-center">
+              <div className="text-center w-full">
                 <p className="text-xs font-light text-white/80 mb-0.5 leading-tight">{client.name}</p>
-                <p className="text-xs font-light text-muted">{client.subscribers}</p>
+                <p className="text-[10px] font-light text-muted leading-tight">{client.subscribers}</p>
               </div>
             </motion.div>
           ))}
