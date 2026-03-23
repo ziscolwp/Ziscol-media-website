@@ -38,16 +38,17 @@ rm -rf .next && node node_modules/next/dist/bin/next dev
 ```
 ks-media/
 ├── app/
-│   ├── layout.tsx              # Root layout — Inter + Playfair Display fonts, metadata + Figma capture script
+│   ├── layout.tsx              # Root layout — fonts, metadata, favicon, Figma capture script
+│   ├── icon.svg                # Favicon — ZM logo (pulled from Figma, SVG format)
 │   ├── page.tsx                # Main landing page — assembles all sections (overflow-clip, not overflow-hidden)
 │   └── globals.css             # Global styles, design tokens, btn-primary, btn-secondary
 ├── components/
 │   ├── layout/
-│   │   ├── Navigation.tsx      # Sticky nav, "Ziscol Media" logo, "Book a Call" pill CTA, mobile menu
+│   │   ├── Navigation.tsx      # Sticky nav, "Ziscol Media" text logo, "Book a Call" pill CTA, mobile menu
 │   │   └── FooterLuxury.tsx    # Brand col + Contact col (email/X/Calendly)
 │   ├── sections/
 │   │   ├── HeroLuxury.tsx      # ACTIVE — hero with floating service elements, trust badge, count-up stats
-│   │   ├── WorkedWith.tsx      # ACTIVE — "Trusted by Top Creators" with colored initial avatars
+│   │   ├── WorkedWith.tsx      # ACTIVE — 9 real clients with real PFPs via unavatar.io
 │   │   ├── PortfolioCarousel.tsx # ACTIVE — 2x2 grid of 4 real YouTube videos (inline embeds)
 │   │   ├── HowItWorks.tsx      # ACTIVE — 6-step sticky scroll, SVG illustrations, CSS transitions, text size controls
 │   │   ├── FAQSection.tsx      # ACTIVE — FAQ accordion (9 real Q&As) + inline Calendly booking widget
@@ -61,7 +62,9 @@ ks-media/
 │       └── FloatingElementsEditor.tsx  # DEV TOOL — visual editor for hero floating elements
 ├── tailwind.config.ts          # accent: #E6EB2F, fonts: sans=Inter, display=Playfair
 ├── next.config.mjs
-└── public/images/              # (empty — no images uploaded yet)
+└── public/images/
+    ├── logo.png                # ZM logo (SVG data, pulled from Figma node 32:15)
+    └── ob-health.jpg           # OB Health profile picture (manually provided)
 ```
 
 ---
@@ -106,14 +109,14 @@ ks-media/
 
 **Headline:** "Stop Producing Content / Start Closing From It" (yellow accent on second line)
 
-**Trust badge:** Stacked avatars + "Trusted by 15+ B2B Founders"
+**Trust badge:** 3 real client PFPs (BullRunners, Jake Claver, OB Health) + "Trusted by 15+ B2B Founders"
 
 **Subheading:** "We handle every part of YouTube scripts, thumbnails, editing, packaging so you can focus on closing clients. You just show up and record. We do the rest."
 
-**Stats (animated count-up):**
-- $100K → $1M+ | Revenue Made for Clients
-- 0 → 15+ | Business Creators Helped
-- 0.0 → 4.9/5 | Client Rating
+**Stats (animated count-up, mobile: 3-col grid, desktop: flex row with dividers):**
+- $400K+ | Revenue Made for Clients
+- 15+ | Business Creators Helped
+- 4.9/5 | Client Rating
 
 **Floating service elements** (xl screens only, configured via FloatingElementsEditor):
 ```
@@ -126,6 +129,26 @@ Each element has a soft yellow glow (`box-shadow: 0 0 18px rgba(230,235,47,0.12)
 The `⚙ Edit Floats` button (bottom-right) opens the live editor.
 
 **Scroll indicator:** 3 cascading yellow chevrons (pulsing sequentially).
+
+---
+
+## WorkedWith Section (WorkedWith.tsx)
+- 9 real clients with actual profile pictures via `unavatar.io`
+- Layout: `flex flex-wrap justify-center` — all 9 on one row desktop, centered wrap on mobile
+- OB Health uses local image `/images/ob-health.jpg` (Instagram blocks unavatar)
+- All others use `https://unavatar.io/youtube/{handle}`
+
+| Client | Label | Source |
+|--------|-------|--------|
+| BullRunners | 375K subs | unavatar.io/youtube/bullrunners |
+| Jake Claver | 100K+ subs | unavatar.io/youtube/jakeclaver |
+| OB Health | 290K followers | /images/ob-health.jpg (local) |
+| Jesse Hoffman | Founder of MindPeak | unavatar.io/youtube/jessehhoffman |
+| Hamilton Emails | Founder, Hamilton Emails | unavatar.io/youtube/hamiltonemails |
+| Will Cannon | Founder, iamwillcannon | unavatar.io/youtube/iamwillcannon |
+| Morgan Nelson | Founder @ Dream Out Loud | unavatar.io/youtube/morgantnelson |
+| Tarun Kamath | CEO of Arcady Media | unavatar.io/youtube/tarunkamath |
+| CJ Weber | 149K TikTok followers | unavatar.io/youtube/cjweber7 |
 
 ---
 
@@ -161,27 +184,25 @@ The `⚙ Edit Floats` button (bottom-right) opens the live editor.
 
 ---
 
-## Real Client Data
-| Client | Metric |
-|--------|--------|
-| Putatoputato | 2.9M subscribers |
-| Ob_Health | 271K followers |
-| Nelson Morgan | 163K subscribers |
-| Milan Raviji | 10M+ impressions |
+## Contact Details (all live)
+- **Email:** `contact@ziscolmedia.com`
+- **X/Twitter:** `@ziscolwp` → `https://x.com/ziscolwp`
+- **Calendly:** `https://calendly.com/ziscolmedia/30min`
 
 ---
 
-## Contact Details (all live)
-- **Email:** `contact@ziscolmedia.com`
-- **X/Twitter:** `@ziscolwp` → `https://twitter.com/ziscolwp`
-- **Calendly:** `https://calendly.com/ziscolmedia/30min`
+## Favicon & Branding
+- **Favicon:** `app/icon.svg` — ZM logo pulled from Figma (file: `N0ETXZnRyW9sFjNP61fBap`, node: `32:15`)
+- **Tab title:** `Ziscol Media` (no subtitle)
+- **Nav logo:** "Ziscol Media" text (Playfair Display font)
 
 ---
 
 ## MCP Integrations
 - **Figma MCP**: `https://mcp.figma.com/mcp` — configured in `~/.claude.json`
   - Figma file (main designs): `https://www.figma.com/design/G6CwXYCtZkHVnoUXOa6MAk/ziscolmedia.com`
-  - Figma file (original): `https://www.figma.com/design/N0ETXZnRyW9sFjNP61fBap/Ziscol-Media`
+  - Figma file (original + logo): `https://www.figma.com/design/N0ETXZnRyW9sFjNP61fBap/Ziscol-Media`
+  - Logo node ID: `32:15` (vector named "Logo")
   - Capture script is in `app/layout.tsx` — leave it there for future Figma captures
 
 ---
@@ -200,9 +221,14 @@ The `⚙ Edit Floats` button (bottom-right) opens the live editor.
 - HowItWorks: smooth CSS transitions, text/circle size dev controls, sticky scroll fixed
 - FAQSection: 9 real Q&As, inline Calendly booking widget wired
 - All Calendly placeholders replaced with real URL
-- Contact details updated (email + X handle)
+- Contact details updated (email: contact@ziscolmedia.com, X: @ziscolwp → x.com/ziscolwp)
 - GitHub repo created and connected to Vercel for auto-deploy
 - Domain `ziscolmedia.com` purchased and being connected
+- WorkedWith: replaced all placeholder clients with 9 real clients + real PFPs
+- Hero trust badge: updated to use real client profile pictures
+- Hero stats: fixed mobile alignment (3-col grid, hidden dividers on mobile)
+- Favicon: ZM logo added as `app/icon.svg` (pulled from Figma MCP)
+- Tab title: simplified to just "Ziscol Media"
 
 ---
 
@@ -211,8 +237,8 @@ The `⚙ Edit Floats` button (bottom-right) opens the live editor.
 **Priority 1: Results / Testimonials sections**
 - `Results.tsx` and `Testimonials.tsx` exist but are UNUSED — activate when real testimonial data is ready
 
-**Priority 2: WorkedWith section — expand client list**
-- Currently shows 4 real clients — can add more (The Daily Brief 480K, Alex Ventures 1.2M, MindsetPro 320K, Growth Labs 750K from Figma design)
+**Priority 2: Any remaining mobile fixes**
+- Review full mobile layout for other misalignment issues
 
-**Priority 3: Any remaining design tweaks**
-- Review live site at ziscolmedia.com once DNS propagates
+**Priority 3: Domain**
+- Check if `ziscolmedia.com` DNS has propagated and site is live on custom domain
