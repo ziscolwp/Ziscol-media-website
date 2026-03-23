@@ -12,8 +12,8 @@ const clients = [
   { name: 'Hamilton Emails', initials: 'HE', subscribers: 'Founder, Hamilton Emails', color: '#F472B6', textColor: '#fff' },
   { name: 'Will Cannon', initials: 'WC', subscribers: 'Founder, iamwillcannon', color: '#fb923c', textColor: '#fff' },
   { name: 'Morgan Nelson', initials: 'MN', subscribers: 'Founder @ Dream Out Loud', color: '#34D399', textColor: '#000' },
-  { name: 'Tarun Kamath', initials: 'TK', subscribers: 'Founder', color: '#f87171', textColor: '#fff' },
-  { name: 'CJ Weber', initials: 'CJ', subscribers: 'Founder', color: '#818cf8', textColor: '#fff' },
+  { name: 'Tarun Kamath', initials: 'TK', subscribers: 'CEO of Arcady Media', color: '#f87171', textColor: '#fff' },
+  { name: 'CJ Weber', initials: 'CJ', subscribers: '149K TikTok followers', color: '#818cf8', textColor: '#fff' },
 ]
 
 export default function WorkedWith() {
