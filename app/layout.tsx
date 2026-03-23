@@ -17,13 +17,13 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'Ziscol Media — Premium Video Editing for Creators',
+  title: 'Ziscol Media — YouTube Video Agency for B2B Founders',
   description:
-    'Premium talking head video editing for YouTube creators. Edits you can trust, delivered right when you need them.',
+    'We create YouTube videos that grow your MRR while positioning you as the #1 authority in your market.',
   openGraph: {
-    title: 'Ziscol Media — Premium Video Editing for Creators',
+    title: 'Ziscol Media — YouTube Video Agency for B2B Founders',
     description:
-      'Premium talking head video editing for YouTube creators. Edits you can trust, delivered right when you need them.',
+      'We create YouTube videos that grow your MRR while positioning you as the #1 authority in your market.',
     url: 'https://ziscolmedia.com',
     siteName: 'Ziscol Media',
     type: 'website',
