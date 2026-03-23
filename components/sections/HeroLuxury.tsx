@@ -84,11 +84,18 @@ export default function HeroLuxury() {
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03]">
             {/* Stacked avatars */}
             <div className="flex -space-x-2">
-              {['#7c6f5a', '#5a6f7c', '#5a7c6f'].map((bg, i) => (
-                <div key={i} className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-[9px] font-medium text-white"
-                  style={{ background: bg, zIndex: 3 - i }}>
-                  {['B', 'F', 'M'][i]}
-                </div>
+              {[
+                { src: 'https://unavatar.io/youtube/bullrunners', alt: 'BullRunners' },
+                { src: 'https://unavatar.io/youtube/jakeclaver', alt: 'Jake Claver' },
+                { src: '/images/ob-health.jpg', alt: 'OB Health' },
+              ].map((avatar, i) => (
+                <img
+                  key={i}
+                  src={avatar.src}
+                  alt={avatar.alt}
+                  className="w-6 h-6 rounded-full border border-white/20 object-cover"
+                  style={{ zIndex: 3 - i }}
+                />
               ))}
             </div>
             <span className="text-xs font-light text-white/60 tracking-wide">
