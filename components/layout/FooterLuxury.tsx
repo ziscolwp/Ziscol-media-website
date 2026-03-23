@@ -30,20 +30,6 @@ export default function FooterLuxury() {
                 Turning raw footage into content that builds audiences and drives real business growth.
               </p>
 
-              {/* Email Signup */}
-              <div className="flex gap-2 max-w-sm">
-                <div className="flex-1 glass rounded-xl px-4 py-3 flex items-center">
-                  <EnvelopeSimple size={20} weight="light" className="text-white/40 mr-2" />
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    className="bg-transparent border-none outline-none text-sm font-light w-full placeholder:text-white/30"
-                  />
-                </div>
-                <button className="neuro-button px-6 py-3 rounded-xl text-sm font-light whitespace-nowrap">
-                  Subscribe
-                </button>
-              </div>
             </motion.div>
           </div>
 
