@@ -106,7 +106,7 @@ export default function WorkedWith() {
               : { opacity: 0, y: 30, filter: 'blur(10px)' }
           }
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-20 text-center"
+          className="mt-8 text-center"
         >
           <p className="text-sm font-light text-muted">
             And many more creators growing with us

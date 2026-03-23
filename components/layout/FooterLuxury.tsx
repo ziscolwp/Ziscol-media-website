@@ -2,18 +2,10 @@
 
 import { motion } from 'framer-motion'
 import {
-  InstagramLogo,
-  YoutubeLogo,
-  TwitterLogo,
   EnvelopeSimple,
   CalendarBlank,
+  TwitterLogo,
 } from '@phosphor-icons/react/dist/ssr'
-
-const socialLinks = [
-  { icon: InstagramLogo, href: 'https://instagram.com', label: 'Instagram' },
-  { icon: YoutubeLogo, href: 'https://youtube.com', label: 'YouTube' },
-  { icon: TwitterLogo, href: 'https://x.com/ziscolwp', label: 'Twitter' },
-]
 
 export default function FooterLuxury() {
   const currentYear = new Date().getFullYear()
@@ -114,30 +106,6 @@ export default function FooterLuxury() {
             © {currentYear} Ziscol Media. All rights reserved.
           </p>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-4">
-            {socialLinks.map((social) => {
-              const Icon = social.icon
-              return (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="glass w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-all group"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Icon
-                    size={20}
-                    weight="light"
-                    className="text-white/60 group-hover:text-white transition-colors"
-                  />
-                </motion.a>
-              )
-            })}
-          </div>
         </motion.div>
       </div>
     </footer>

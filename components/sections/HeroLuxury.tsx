@@ -3,7 +3,6 @@
 import { motion, useInView, animate } from 'framer-motion'
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
 import { useEffect, useRef } from 'react'
-import FloatingElementsEditor from '@/components/ui/FloatingElementsEditor'
 
 function CountUp({
   from = 0, to, prefix = '', suffix = '', decimals = 0, duration = 2,
@@ -69,7 +68,6 @@ export default function HeroLuxury() {
         />
       </div>
 
-      <FloatingElementsEditor />
 
       {/* ── Main content ── */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -184,7 +182,7 @@ export default function HeroLuxury() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+        className="absolute bottom-10 left-0 right-0 flex flex-col items-center gap-1"
       >
         {[0, 1, 2].map((i) => (
           <motion.div

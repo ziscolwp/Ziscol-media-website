@@ -91,7 +91,7 @@ export default function Navigation() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
               onClick={() => window.open('https://calendly.com/ziscolmedia/30min', '_blank')}
-              className="hidden md:flex btn-primary px-6 py-2.5 text-sm"
+              className="hidden md:flex btn-primary px-6 py-2.5 text-lg"
             >
               Book a Call
             </motion.button>

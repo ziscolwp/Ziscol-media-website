@@ -40,6 +40,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://calendly.com" />
+        <link rel="preconnect" href="https://assets.calendly.com" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
+        <link rel="dns-prefetch" href="https://assets.calendly.com" />
+      </head>
       <body className="antialiased bg-gradient-to-br from-zinc-950 via-neutral-950 to-black font-light">
         {/* figma capture */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}

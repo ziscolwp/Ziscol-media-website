@@ -145,21 +145,15 @@ export default function FAQSection() {
         </div>
 
         {/* Inline Calendly booking */}
-        <motion.div
-          initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-          animate={
-            isInView
-              ? { opacity: 1, y: 0, filter: 'blur(0px)' }
-              : { opacity: 0, y: 30, filter: 'blur(10px)' }
-          }
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 glass rounded-2xl overflow-hidden"
-          style={{ scrollbarWidth: 'none' }}
-        >
-          <div className="pt-6 px-6 text-center">
-            <h3 className="text-2xl font-light mb-1">Book a Call</h3>
-            <p className="text-muted font-light text-sm">Pick a time that works for you — no back-and-forth.</p>
-          </div>
+        <div className="mt-16 glass rounded-2xl overflow-hidden" style={{ scrollbarWidth: 'none' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="pt-6 px-6 text-center"
+          >
+            <h3 className="text-4xl md:text-5xl font-light mb-1">Book a Call</h3>
+          </motion.div>
           <div style={{ overflow: 'hidden' }}>
             <InlineWidget
               url="https://calendly.com/ziscolmedia/30min"
@@ -173,7 +167,7 @@ export default function FAQSection() {
               }}
             />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
