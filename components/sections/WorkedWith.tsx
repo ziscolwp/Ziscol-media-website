@@ -5,14 +5,15 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 const clients = [
-  { name: 'Putatoputato', initials: 'PP', subscribers: '2.9M subs', color: '#e6eb2f', textColor: '#000' },
-  { name: 'Ob_Health', initials: 'OH', subscribers: '271K followers', color: '#a78bfa', textColor: '#fff' },
-  { name: 'Nelson Morgan', initials: 'NM', subscribers: '163K subs', color: '#34D399', textColor: '#000' },
-  { name: 'Milan Raviji', initials: 'MR', subscribers: '10M+ impressions', color: '#F472B6', textColor: '#fff' },
-  { name: 'The Daily Brief', initials: 'DB', subscribers: '480K subs', color: '#60a5fa', textColor: '#fff' },
-  { name: 'Alex Ventures', initials: 'AV', subscribers: '1.2M subs', color: '#fb923c', textColor: '#fff' },
-  { name: 'MindsetPro', initials: 'MP', subscribers: '320K subs', color: '#f87171', textColor: '#fff' },
-  { name: 'Growth Labs', initials: 'GL', subscribers: '750K subs', color: '#2dd4bf', textColor: '#000' },
+  { name: 'BullRunners', initials: 'BR', subscribers: '375K subs', color: '#e6eb2f', textColor: '#000' },
+  { name: 'Jake Claver', initials: 'JC', subscribers: '100K+ subs', color: '#60a5fa', textColor: '#fff' },
+  { name: 'OB Health', initials: 'OB', subscribers: '290K followers', color: '#2dd4bf', textColor: '#000' },
+  { name: 'Jesse Hoffman', initials: 'JH', subscribers: 'Founder of MindPeak', color: '#a78bfa', textColor: '#fff' },
+  { name: 'Hamilton Emails', initials: 'HE', subscribers: 'Founder, Hamilton Emails', color: '#F472B6', textColor: '#fff' },
+  { name: 'Will Cannon', initials: 'WC', subscribers: 'Founder, iamwillcannon', color: '#fb923c', textColor: '#fff' },
+  { name: 'Morgan Nelson', initials: 'MN', subscribers: 'Founder @ Dream Out Loud', color: '#34D399', textColor: '#000' },
+  { name: 'Tarun Kamath', initials: 'TK', subscribers: 'Founder', color: '#f87171', textColor: '#fff' },
+  { name: 'CJ Weber', initials: 'CJ', subscribers: 'Founder', color: '#818cf8', textColor: '#fff' },
 ]
 
 export default function WorkedWith() {
