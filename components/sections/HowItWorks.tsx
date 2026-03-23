@@ -266,7 +266,7 @@ export default function HowItWorks() {
                       </div>
                     </div>
                     {/* Mobile illustration */}
-                    <div className="ml-14 w-full max-w-[280px] aspect-[4/3] rounded-xl bg-[#1e1e1e] p-3">
+                    <div className="ml-14 w-full max-w-[280px] aspect-[4/3] rounded-xl bg-black p-3">
                       <img src={illustrationSrcs[i]} alt={step.title} className="w-full h-full object-contain scale-[1.33]" />
                     </div>
                   </div>
