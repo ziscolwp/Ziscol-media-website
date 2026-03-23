@@ -12,7 +12,7 @@ import {
 const socialLinks = [
   { icon: InstagramLogo, href: 'https://instagram.com', label: 'Instagram' },
   { icon: YoutubeLogo, href: 'https://youtube.com', label: 'YouTube' },
-  { icon: TwitterLogo, href: 'https://twitter.com/ziscolwp', label: 'Twitter' },
+  { icon: TwitterLogo, href: 'https://twitter.com/zicolwp', label: 'Twitter' },
 ]
 
 export default function FooterLuxury() {
@@ -77,13 +77,13 @@ export default function FooterLuxury() {
               </li>
               <li>
                 <a
-                  href="https://twitter.com/ziscolwp"
+                  href="https://twitter.com/zicolwp"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted font-light text-sm hover:text-white transition-colors group"
                 >
                   <TwitterLogo size={18} weight="light" className="group-hover:text-white transition-colors shrink-0" />
-                  @ziscolwp
+                  @zicolwp
                 </a>
               </li>
               <li>
