@@ -12,7 +12,7 @@ import {
 const socialLinks = [
   { icon: InstagramLogo, href: 'https://instagram.com', label: 'Instagram' },
   { icon: YoutubeLogo, href: 'https://youtube.com', label: 'YouTube' },
-  { icon: TwitterLogo, href: 'https://twitter.com/ZiscolMedia', label: 'Twitter' }, // TODO: replace with real X handle
+  { icon: TwitterLogo, href: 'https://twitter.com/ziscolwp', label: 'Twitter' },
 ]
 
 export default function FooterLuxury() {
@@ -68,22 +68,22 @@ export default function FooterLuxury() {
             <ul className="space-y-5">
               <li>
                 <a
-                  href="mailto:hello@ziscolmedia.com" // TODO: replace with real email
+                  href="mailto:contact@ziscolmedia.com" // TODO: replace with real email
                   className="flex items-center gap-3 text-muted font-light text-sm hover:text-white transition-colors group"
                 >
                   <EnvelopeSimple size={18} weight="light" className="group-hover:text-white transition-colors shrink-0" />
-                  hello@ziscolmedia.com
+                  contact@ziscolmedia.com
                 </a>
               </li>
               <li>
                 <a
-                  href="https://twitter.com/ZiscolMedia" // TODO: replace with real X handle
+                  href="https://twitter.com/ziscolwp"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted font-light text-sm hover:text-white transition-colors group"
                 >
                   <TwitterLogo size={18} weight="light" className="group-hover:text-white transition-colors shrink-0" />
-                  @ZiscolMedia
+                  @ziscolwp
                 </a>
               </li>
               <li>
