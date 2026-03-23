@@ -150,31 +150,31 @@ export default function HeroLuxury() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="mt-24 flex flex-wrap items-center justify-center gap-8 md:gap-16"
+          className="mt-24 grid grid-cols-3 md:flex md:flex-row items-center justify-center gap-4 md:gap-16 w-full max-w-lg md:max-w-none mx-auto"
         >
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold tracking-tight mb-1" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
+            <div className="text-2xl md:text-4xl font-bold tracking-tight mb-1" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
               <MoneyCountUp />
             </div>
-            <div className="text-xs font-light text-white/40 tracking-wide uppercase">Revenue Made for Clients</div>
+            <div className="text-[10px] md:text-xs font-light text-white/40 tracking-wide uppercase">Revenue Made for Clients</div>
           </div>
 
-          <div className="w-px h-10 bg-white/10" />
+          <div className="hidden md:block w-px h-10 bg-white/10" />
 
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold tracking-tight mb-1" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
+            <div className="text-2xl md:text-4xl font-bold tracking-tight mb-1" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
               <CountUp from={0} to={15} suffix="+" duration={2} />
             </div>
-            <div className="text-xs font-light text-white/40 tracking-wide uppercase">Business Creators Helped</div>
+            <div className="text-[10px] md:text-xs font-light text-white/40 tracking-wide uppercase">Business Creators Helped</div>
           </div>
 
-          <div className="w-px h-10 bg-white/10" />
+          <div className="hidden md:block w-px h-10 bg-white/10" />
 
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold tracking-tight mb-1" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
+            <div className="text-2xl md:text-4xl font-bold tracking-tight mb-1" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
               <CountUp from={0} to={4.9} suffix="/5" decimals={1} duration={2} />
             </div>
-            <div className="text-xs font-light text-white/40 tracking-wide uppercase">Client Rating</div>
+            <div className="text-[10px] md:text-xs font-light text-white/40 tracking-wide uppercase">Client Rating</div>
           </div>
         </motion.div>
       </div>
