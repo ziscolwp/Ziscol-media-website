@@ -2,19 +2,46 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 const clients = [
-  { name: 'BullRunners', initials: 'BR', subscribers: '375K subs', color: '#e6eb2f', textColor: '#000' },
-  { name: 'Jake Claver', initials: 'JC', subscribers: '100K+ subs', color: '#60a5fa', textColor: '#fff' },
-  { name: 'OB Health', initials: 'OB', subscribers: '290K followers', color: '#2dd4bf', textColor: '#000' },
-  { name: 'Jesse Hoffman', initials: 'JH', subscribers: 'Founder of MindPeak', color: '#a78bfa', textColor: '#fff' },
-  { name: 'Hamilton Emails', initials: 'HE', subscribers: 'Founder, Hamilton Emails', color: '#F472B6', textColor: '#fff' },
-  { name: 'Will Cannon', initials: 'WC', subscribers: 'Founder, iamwillcannon', color: '#fb923c', textColor: '#fff' },
-  { name: 'Morgan Nelson', initials: 'MN', subscribers: 'Founder @ Dream Out Loud', color: '#34D399', textColor: '#000' },
-  { name: 'Tarun Kamath', initials: 'TK', subscribers: 'CEO of Arcady Media', color: '#f87171', textColor: '#fff' },
-  { name: 'CJ Weber', initials: 'CJ', subscribers: '149K TikTok followers', color: '#818cf8', textColor: '#fff' },
+  { name: 'BullRunners', initials: 'BR', subscribers: '375K subs', color: '#e6eb2f', textColor: '#000', img: 'https://unavatar.io/youtube/bullrunners' },
+  { name: 'Jake Claver', initials: 'JC', subscribers: '100K+ subs', color: '#60a5fa', textColor: '#fff', img: 'https://unavatar.io/youtube/jakeclaver' },
+  { name: 'OB Health', initials: 'OB', subscribers: '290K followers', color: '#2dd4bf', textColor: '#000', img: 'https://unavatar.io/instagram/ob_health.fit' },
+  { name: 'Jesse Hoffman', initials: 'JH', subscribers: 'Founder of MindPeak', color: '#a78bfa', textColor: '#fff', img: 'https://unavatar.io/youtube/jessehhoffman' },
+  { name: 'Hamilton Emails', initials: 'HE', subscribers: 'Founder, Hamilton Emails', color: '#F472B6', textColor: '#fff', img: 'https://unavatar.io/youtube/hamiltonemails' },
+  { name: 'Will Cannon', initials: 'WC', subscribers: 'Founder, iamwillcannon', color: '#fb923c', textColor: '#fff', img: 'https://unavatar.io/youtube/iamwillcannon' },
+  { name: 'Morgan Nelson', initials: 'MN', subscribers: 'Founder @ Dream Out Loud', color: '#34D399', textColor: '#000', img: 'https://unavatar.io/youtube/morgantnelson' },
+  { name: 'Tarun Kamath', initials: 'TK', subscribers: 'CEO of Arcady Media', color: '#f87171', textColor: '#fff', img: 'https://unavatar.io/youtube/tarunkamath' },
+  { name: 'CJ Weber', initials: 'CJ', subscribers: '149K TikTok followers', color: '#818cf8', textColor: '#fff', img: 'https://unavatar.io/youtube/cjweber7' },
 ]
+
+function ClientAvatar({ client }: { client: typeof clients[0] }) {
+  const [imgFailed, setImgFailed] = useState(false)
+  return (
+    <div className="relative mb-3">
+      {!imgFailed ? (
+        <img
+          src={client.img}
+          alt={client.name}
+          onError={() => setImgFailed(true)}
+          className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-2 border-white/10"
+        />
+      ) : (
+        <div
+          className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-lg font-semibold group-hover:scale-105 transition-transform duration-300 border-2 border-white/10"
+          style={{ backgroundColor: client.color, color: client.textColor }}
+        >
+          {client.initials}
+        </div>
+      )}
+      <div
+        className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-300 -z-10"
+        style={{ backgroundColor: client.color }}
+      />
+    </div>
+  )
+}
 
 export default function WorkedWith() {
   const ref = useRef(null)
@@ -60,19 +87,7 @@ export default function WorkedWith() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="flex flex-col items-center group"
             >
-              <div className="relative mb-3">
-                <div
-                  className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-lg font-semibold group-hover:scale-105 transition-transform duration-300 border-2 border-white/10"
-                  style={{ backgroundColor: client.color, color: client.textColor }}
-                >
-                  {client.initials}
-                </div>
-                {/* Glow effect on hover */}
-                <div
-                  className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-300 -z-10"
-                  style={{ backgroundColor: client.color }}
-                />
-              </div>
+              <ClientAvatar client={client} />
               <div className="text-center">
                 <p className="text-xs font-light text-white/80 mb-0.5 leading-tight">{client.name}</p>
                 <p className="text-xs font-light text-muted">{client.subscribers}</p>
