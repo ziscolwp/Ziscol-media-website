@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     'We create YouTube videos that grow your MRR while positioning you as the #1 authority in your market.',
   icons: {
-    icon: '/images/logo.png',
+    icon: '/icon.svg',
   },
   openGraph: {
     title: 'Ziscol Media',
