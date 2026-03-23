@@ -7,7 +7,7 @@ import { useRef, useState } from 'react'
 const clients = [
   { name: 'BullRunners', initials: 'BR', subscribers: '375K subs', color: '#e6eb2f', textColor: '#000', img: 'https://unavatar.io/youtube/bullrunners' },
   { name: 'Jake Claver', initials: 'JC', subscribers: '100K+ subs', color: '#60a5fa', textColor: '#fff', img: 'https://unavatar.io/youtube/jakeclaver' },
-  { name: 'OB Health', initials: 'OB', subscribers: '290K followers', color: '#2dd4bf', textColor: '#000', img: '' },
+  { name: 'OB Health', initials: 'OB', subscribers: '290K followers', color: '#2dd4bf', textColor: '#000', img: '/images/ob-health.jpg' },
   { name: 'Jesse Hoffman', initials: 'JH', subscribers: 'Founder of MindPeak', color: '#a78bfa', textColor: '#fff', img: 'https://unavatar.io/youtube/jessehhoffman' },
   { name: 'Hamilton Emails', initials: 'HE', subscribers: 'Founder, Hamilton Emails', color: '#F472B6', textColor: '#fff', img: 'https://unavatar.io/youtube/hamiltonemails' },
   { name: 'Will Cannon', initials: 'WC', subscribers: 'Founder, iamwillcannon', color: '#fb923c', textColor: '#fff', img: 'https://unavatar.io/youtube/iamwillcannon' },
