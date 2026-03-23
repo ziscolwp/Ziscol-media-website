@@ -3,9 +3,10 @@
 ## What This Project Is
 A landing page for **Ziscol Media**, a premium YouTube video editing / content agency targeting B2B founders aged 25-30+. Goal: conversion-focused, mature/premium aesthetic that builds trust and drives Calendly bookings.
 
-**Live URL:** https://ks-media-ecru.vercel.app
+**Live URL:** https://ks-media-ecru.vercel.app (also mapped to ziscolmedia.com — DNS pending)
 **Vercel project:** `ziscolwp-4682s-projects/ks-media`
-**Redeploy command:** `cd "/Volumes/MAIN DIRVE/Ziscol Media /Branding /Website/website/ks-media" && vercel --prod`
+**GitHub repo:** https://github.com/ziscolwp/Ziscol-media-website
+**Deploy:** Push to `main` → Vercel auto-deploys (GitHub connected to Vercel)
 
 ---
 
@@ -15,7 +16,7 @@ A landing page for **Ziscol Media**, a premium YouTube video editing / content a
 - **Styling**: Tailwind CSS 3.4.1 + custom CSS
 - **Animations**: Framer Motion 11
 - **Icons**: Phosphor Icons React
-- **Calendly**: react-calendly 4.3.0 (installed, not wired yet)
+- **Calendly**: react-calendly 4.3.0 — **wired and live** (`https://calendly.com/ziscolmedia/30min`)
 - **Fonts**: Inter (body) + Playfair Display (headings h1/h2/h3)
 
 ## How to Run the Dev Server
@@ -26,13 +27,18 @@ node node_modules/next/dist/bin/next dev
 ```
 Runs on **http://localhost:3000** (or 3001 if 3000 is taken).
 
+**Note:** If the website looks broken (white screen, no styles), delete `.next` and restart:
+```bash
+rm -rf .next && node node_modules/next/dist/bin/next dev
+```
+
 ---
 
 ## Project Structure
 ```
 ks-media/
 ├── app/
-│   ├── layout.tsx              # Root layout — Inter + Playfair Display fonts, metadata
+│   ├── layout.tsx              # Root layout — Inter + Playfair Display fonts, metadata + Figma capture script
 │   ├── page.tsx                # Main landing page — assembles all sections (overflow-clip, not overflow-hidden)
 │   └── globals.css             # Global styles, design tokens, btn-primary, btn-secondary
 ├── components/
@@ -43,8 +49,8 @@ ks-media/
 │   │   ├── HeroLuxury.tsx      # ACTIVE — hero with floating service elements, trust badge, count-up stats
 │   │   ├── WorkedWith.tsx      # ACTIVE — "Trusted by Top Creators" with colored initial avatars
 │   │   ├── PortfolioCarousel.tsx # ACTIVE — 2x2 grid of 4 real YouTube videos (inline embeds)
-│   │   ├── HowItWorks.tsx      # ACTIVE — 6-step sticky scroll, SVG illustrations, direction-aware slide anim
-│   │   ├── FAQSection.tsx      # ACTIVE — FAQ accordion + CTA
+│   │   ├── HowItWorks.tsx      # ACTIVE — 6-step sticky scroll, SVG illustrations, CSS transitions, text size controls
+│   │   ├── FAQSection.tsx      # ACTIVE — FAQ accordion (9 real Q&As) + inline Calendly booking widget
 │   │   ├── Results.tsx         # UNUSED — real client case study cards
 │   │   ├── Testimonials.tsx    # UNUSED — testimonial cards
 │   │   └── [other unused components...]
@@ -66,7 +72,7 @@ ks-media/
 3. `<WorkedWith />` — trusted by creators
 4. `<PortfolioCarousel />` — portfolio
 5. `<HowItWorks />` — process steps
-6. `<FAQSection />` — FAQ
+6. `<FAQSection />` — FAQ + inline Calendly booking
 7. `<FooterLuxury />` — footer
 
 ---
@@ -78,7 +84,7 @@ ks-media/
 
 **Colors:**
 - Background: `#0a0a0a` / `#121212` / `#1e1e1e`
-- **Accent: `#E6EB2F`** (yellow-green) — primary accent, replaced all previous indigo
+- **Accent: `#E6EB2F`** (yellow-green) — primary accent
 - Text: `#ffffff` / `rgba(255,255,255,0.5)` muted
 
 **CSS Utility Classes (globals.css):**
@@ -117,7 +123,7 @@ ks-media/
 { label: 'Distribution',   side: 'right', top: 58, edge: 15, opacity: 36, size: 14, floatSpeed: 5.5 }
 ```
 Each element has a soft yellow glow (`box-shadow: 0 0 18px rgba(230,235,47,0.12)`).
-The `⚙ Edit Floats` button (bottom-right) opens the live editor — adjust sliders, copy config, paste back as new defaults.
+The `⚙ Edit Floats` button (bottom-right) opens the live editor.
 
 **Scroll indicator:** 3 cascading yellow chevrons (pulsing sequentially).
 
@@ -136,10 +142,22 @@ The `⚙ Edit Floats` button (bottom-right) opens the live editor — adjust sli
 - **Desktop:** sticky scroll (360vh tall container), page locks while user scrolls through 6 steps
 - **Sticky fix:** `app/page.tsx` uses `overflow-clip` (not `overflow-hidden`) — critical, do not revert
 - **6 steps:** Market Research → Video Ideation → Scripting → Video Recording → Post-production → Distribution
-- **Left column:** step list with animated circles (inactive: `#1e1e1e` bg, active: `#E6EB2F`)
-- **Connector line fix:** `top-9` + `height: calc(100% + 24px)` — threads between circles cleanly
-- **Right column:** SVG illustrations fade + slide between steps (direction-aware: scrolling down = slide up, scrolling up = slide down)
+- **Animations:** CSS transitions (no Framer Motion on step items) — GPU-accelerated, no re-renders
+- **Height animation:** CSS grid trick (`gridTemplateRows: 0fr → 1fr`) for smooth expand/collapse
+- **State:** `setActiveStep` only fires on step boundary change (not every scroll tick)
+- **Right column:** SVG illustrations fade + slide (cubic-bezier easing)
 - **Mobile:** accordion layout
+- **Dev tool:** `✏ Text Sizes` button (bottom-right) — sliders for all text + circle sizes
+- **Baked-in text config:** `heading: 62, subheading: 16, stepTitle: 23, stepDesc: 14, circleSize: 46, circleNum: 21`
+
+---
+
+## FAQ Section (FAQSection.tsx)
+- 9 real Q&As with actual brand copy (all placeholders replaced)
+- Accordion with AnimatePresence expand/collapse
+- **Inline Calendly widget** at bottom — dark theme, yellow accent, event details hidden
+- Calendly URL: `https://calendly.com/ziscolmedia/30min`
+- "What do I need to provide" answer uses numbered list (JSX answer type)
 
 ---
 
@@ -153,48 +171,48 @@ The `⚙ Edit Floats` button (bottom-right) opens the live editor — adjust sli
 
 ---
 
-## TODOs — Things Still Needing Real Info
-- `https://calendly.com/YOUR_LINK` — replace in HeroLuxury.tsx, FAQSection.tsx, FooterLuxury.tsx, Navigation.tsx
-- `hello@ziscolmedia.com` — confirm/replace real email in FooterLuxury.tsx
-- `@ZiscolMedia` — confirm/replace real X/Twitter handle in FooterLuxury.tsx
-- Portfolio thumbnails already use real YouTube embeds ✓
-- Navigation logo already says "Ziscol Media" ✓
+## Contact Details (all live)
+- **Email:** `contact@ziscolmedia.com`
+- **X/Twitter:** `@ziscolwp` → `https://twitter.com/ziscolwp`
+- **Calendly:** `https://calendly.com/ziscolmedia/30min`
 
 ---
 
 ## MCP Integrations
 - **Figma MCP**: `https://mcp.figma.com/mcp` — configured in `~/.claude.json`
-  - **Requires Claude Code restart to activate**
-  - After restart, verify with: `what figma tools do you have?`
-  - Purpose: read Figma designs and sync changes into code
-  - If not working: run `claude mcp add figma --transport http https://mcp.figma.com/mcp`
+  - Figma file (main designs): `https://www.figma.com/design/G6CwXYCtZkHVnoUXOa6MAk/ziscolmedia.com`
+  - Figma file (original): `https://www.figma.com/design/N0ETXZnRyW9sFjNP61fBap/Ziscol-Media`
+  - Capture script is in `app/layout.tsx` — leave it there for future Figma captures
 
 ---
 
-## Work Completed This Session
-- **Full rebrand**: indigo/purple accent → `#E6EB2F` yellow across all components + tailwind config
-- **Design system overhaul**: replaced `.neuro-button` with `.btn-primary` (yellow pill) + `.btn-secondary` (outline pill)
-- **Navigation**: logo "Ziscol Media" in Playfair, "Book a Call" pill CTA added desktop + mobile
-- **Hero**: trust badge, floating service elements with glow + float animation, count-up stats ($100K→$1M+), chevron scroll indicator
-- **FloatingElementsEditor**: dev tool at `components/ui/FloatingElementsEditor.tsx` — live slider controls, copy-to-clipboard config
-- **Portfolio**: rebuilt as 2x2 grid with 4 real YouTube inline embeds (no modal, all play simultaneously)
-- **HowItWorks**: fixed sticky scroll (overflow-clip), fixed connector line overlap, added direction-aware slide animation to illustrations, step circles now have `#1e1e1e` background
-- **Deployed to Vercel**: https://ks-media-ecru.vercel.app
+## Deployment
+- **Auto-deploy:** GitHub `main` → Vercel (connected)
+- **To deploy:** `git add . && git commit -m "message" && git push`
+- **Domain:** `ziscolmedia.com` — purchased, being connected to Vercel (DNS propagating)
+- **Vercel alias:** https://ks-media-ecru.vercel.app
+
+---
+
+## Work Completed (All Sessions)
+- Full rebrand: indigo/purple → `#E6EB2F` yellow across all components
+- Navigation, Hero, WorkedWith, PortfolioCarousel, HowItWorks, FAQSection, FooterLuxury all built
+- HowItWorks: smooth CSS transitions, text/circle size dev controls, sticky scroll fixed
+- FAQSection: 9 real Q&As, inline Calendly booking widget wired
+- All Calendly placeholders replaced with real URL
+- Contact details updated (email + X handle)
+- GitHub repo created and connected to Vercel for auto-deploy
+- Domain `ziscolmedia.com` purchased and being connected
 
 ---
 
 ## Next Session — Start Here
 
-**Priority 1: HowItWorks S-curve animation**
-The user wants a decorative animated line that draws across the page in an S-curve form as the user scrolls through the 6 steps. Details:
-- As user scrolls steps 1→6, an SVG path animates across the section in an S/wave shape
-- The stroke draws from left to right, then right to left (alternating per step or per scroll)
-- Goal is purely decorative — makes the section feel more premium and dynamic
-- User has a Figma design selected — **use Figma MCP to read it first** (restart Claude Code to activate MCP)
-- Figma file URL needed from user at start of session
+**Priority 1: Results / Testimonials sections**
+- `Results.tsx` and `Testimonials.tsx` exist but are UNUSED — activate when real testimonial data is ready
 
-**Priority 2: Remaining placeholder replacements**
-- Calendly URL, email, X handle
+**Priority 2: WorkedWith section — expand client list**
+- Currently shows 4 real clients — can add more (The Daily Brief 480K, Alex Ventures 1.2M, MindsetPro 320K, Growth Labs 750K from Figma design)
 
-**Priority 3: Any other sections to build or activate**
-- Results/Testimonials sections (unused, ready to activate)
+**Priority 3: Any remaining design tweaks**
+- Review live site at ziscolmedia.com once DNS propagates
