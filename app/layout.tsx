@@ -17,11 +17,14 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'Ziscol Media — YouTube Video Agency for B2B Founders',
+  title: 'Ziscol Media',
   description:
     'We create YouTube videos that grow your MRR while positioning you as the #1 authority in your market.',
+  icons: {
+    icon: '/images/logo.png',
+  },
   openGraph: {
-    title: 'Ziscol Media — YouTube Video Agency for B2B Founders',
+    title: 'Ziscol Media',
     description:
       'We create YouTube videos that grow your MRR while positioning you as the #1 authority in your market.',
     url: 'https://ziscolmedia.com',

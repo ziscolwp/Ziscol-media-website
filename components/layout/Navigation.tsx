@@ -62,7 +62,7 @@ export default function Navigation() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <img src="/images/logo.png" alt="Ziscol Media" className="h-9 w-9 rounded-full object-cover" />
+              Ziscol Media
             </motion.a>
 
             {/* Desktop Navigation */}
