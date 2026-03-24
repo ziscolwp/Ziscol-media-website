@@ -46,7 +46,7 @@ const illustrationSrcs = [
   '/images/how-it-works/distribution.svg',
 ]
 
-const SCROLL_HEIGHT = `${steps.length * 60}vh`
+const SCROLL_HEIGHT = `${steps.length * 50}vh`
 
 export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0)
