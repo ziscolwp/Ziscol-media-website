@@ -231,7 +231,7 @@ export default function HowItWorks() {
       </div>
 
       {/* ─── MOBILE: static accordion-style list ─── */}
-      <div className="lg:hidden bg-[#121212] py-16 px-4 sm:px-6">
+      <div className="lg:hidden bg-[#1E1E1E] py-16 px-4 sm:px-6">
         <div className="max-w-lg mx-auto">
           <div className="text-center mb-10">
             <SectionLabel dark>Our Process</SectionLabel>
